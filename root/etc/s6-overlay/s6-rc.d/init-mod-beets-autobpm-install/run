@@ -1,0 +1,11 @@
+#!/usr/bin/with-contenv bash
+
+echo "**** Installing llvmlite ****"
+ALPINE_VER=$(grep main /etc/apk/repositories | sed 's|.*alpine/v||' | sed 's|/main.*||')
+PIP_ARGS=("-f" "https://wheel-index.linuxserver.io/alpine-${ALPINE_VER}/")
+
+echo "**** Installing autobpm deps ****"
+CMAKE_PREFIX_PATH=/opt/miniconda3/lib/cmake \
+CXXFLAGS=-fPIC \
+python3 -m pip install "${PIP_ARGS[@]}" llvmlite
+python3 -m pip install "${PIP_ARGS[@]}" librosa resampy

@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv bash
+
+echo "**** Adding cmake to package install lists ****"
+echo "\
+  cmake \
+  make \
+  g++" >> /mod-repo-packages-to-install.list
